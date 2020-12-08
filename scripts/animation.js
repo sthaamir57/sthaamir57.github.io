@@ -20,3 +20,9 @@ gsap.fromTo(
   { x: -70, opacity: 0 },
   { duration: 1, x: 0, opacity: 1, ease: "power2.out", delay: 0.2 }
 );
+
+gsap.fromTo(
+  ".days-left",
+  { x: 100, y: 100, opacity: 0 },
+  { duration: 2, x: 0, y: 0, opacity: 1, ease: "power2.out", delay: 0.1 }
+);

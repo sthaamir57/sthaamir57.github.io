@@ -14,7 +14,7 @@ const subjects = [
   "Mathematics II",
 ];
 const links = [
-  "https://us04web.zoom.us/j/75109118527",
+  "https://us04web.zoom.us/j/75109118527?pwd=YzRLZ3J4UDYyclR0aTl6U3NzL2VZdz09",
   "https://us04web.zoom.us/j/3074734435?pwd=UzcwWTNkNEg1TWgzY1ZaRU5rTFQwQT09",
   "https://us04web.zoom.us/j/76242064707?pwd=SHYzdUNpamRVdFg3NDB5M3B6QU9PQT09",
   // "https://zoom.us/j/7782545356?pwd=c3N2SWNQaFFWSFJIaU5ITTFYVmdGQT09",
@@ -30,6 +30,7 @@ function loadAllFunctions() {
   display();
   // document.addEventListener("DOMContentLoaded", displayTime);
   displayTime();
+  daysLeftForExam();
 }
 
 function display() {
@@ -109,5 +110,33 @@ function displayTime() {
       i = "0" + i;
     }
     return i;
+  }
+}
+
+function daysLeftForExam() {
+  let countDownDate = new Date("Jan 15, 2021 15:37:25").getTime();
+
+  // Get today's date and time
+  let now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  let distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  // var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  // var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  // var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  // document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  // + minutes + "m " + seconds + "s ";
+
+  document.querySelector(".days-left").innerHTML = days;
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
   }
 }
