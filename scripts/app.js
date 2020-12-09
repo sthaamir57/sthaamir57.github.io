@@ -19,7 +19,7 @@ const links = [
   "https://us04web.zoom.us/j/76242064707?pwd=SHYzdUNpamRVdFg3NDB5M3B6QU9PQT09",
   // "https://zoom.us/j/7782545356?pwd=c3N2SWNQaFFWSFJIaU5ITTFYVmdGQT09",
   "https://meet.google.com/kcq-uvjo-wns",
-  "https://us04web.zoom.us/j/74707106337?pwd=cHA2dmJuNEZvVHRLSUNoaW95NVU2dz09",
+  "https://us04web.zoom.us/j/71948430193?pwd=UnJvU1pEYjVHbmo2WmxsOEc3a3JXQT09",
 ];
 const hide1 = document.querySelector(".hide-1");
 const hide2 = document.querySelector(".hide-2");
@@ -114,29 +114,35 @@ function displayTime() {
 }
 
 function daysLeftForExam() {
-  let countDownDate = new Date("Jan 15, 2021 15:37:25").getTime();
+  // let countDownDate = new Date("Jan 15, 2021 00:00:00").getTime();
+  let countDownDate = new Date("Jan 15, 2021 00:00:00 GMT+0545").getTime();
+  // let countDownDate2 = new Date("Jan 15, 2021 00:00:00").getTime();
+
+  console.log(countDownDate);
+  // console.log(countDownDate2);
 
   // Get today's date and time
   let now = new Date().getTime();
-
+  // console.log(now);
   // Find the distance between now and the count down date
   let distance = countDownDate - now;
 
   // Time calculations for days, hours, minutes and seconds
   let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  // var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  // var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  // var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  console.log(days);
+  let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  // Display the result in the element with id="demo"
-  // document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  // + minutes + "m " + seconds + "s ";
+  console.log(hours);
+  console.log(minutes);
+  console.log(seconds);
 
-  document.querySelector(".days-left").innerHTML = days;
+  document.querySelector(".days-left").innerHTML = `${days}`;
 
   // If the count down is finished, write some text
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
+    document.getElementById(".days-left").innerHTML = "TODAY";
   }
 }
