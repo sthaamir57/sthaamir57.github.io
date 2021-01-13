@@ -115,7 +115,7 @@ function displayTime() {
 
 function daysLeftForExam() {
   // let countDownDate = new Date("Jan 15, 2021 00:00:00").getTime();
-  let countDownDate = new Date("Jan 15, 2021 00:00:00 GMT+0545").getTime();
+  let countDownDate = new Date("Jan 15, 2021 12:00:00 GMT+0545").getTime();
   // let countDownDate2 = new Date("Jan 15, 2021 00:00:00").getTime();
 
   console.log(countDownDate);
@@ -138,7 +138,7 @@ function daysLeftForExam() {
   console.log(minutes);
   console.log(seconds);
 
-  document.querySelector(".days-left").innerHTML = `${days}`;
+  document.querySelector(".days-left").innerHTML = `${days} D ${hours} H`;
 
   // If the count down is finished, write some text
   if (distance < 0) {
